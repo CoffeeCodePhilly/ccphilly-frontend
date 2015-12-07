@@ -7,13 +7,13 @@ module.exports = function(environment) {
     baseURL: '/',
     api_host: null,
     contentSecurityPolicy: {
-      'default-src': "http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com",
-      'script-src': "'self' http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com",
-      'font-src': "'self' http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com",
-      'connect-src': "'self' http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com",
-      'img-src': "* 'self' http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com",
-      'style-src': "'self' http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com",
-      'media-src': "'self' http://localhost:3000 http://localhost:4200 https://radiant-hollows-7741.herokuapp.com https://coffeecodephillyapi.herokuapp.com"
+      'default-src': "http://localhost:3000 http://localhost:4200 107.170.159.14",
+      'script-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
+      'font-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
+      'connect-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
+      'img-src': "* 'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
+      'style-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
+      'media-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14"
     },
     locationType: 'auto',
     EmberENV: {
@@ -30,12 +30,12 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    crossOriginWhitelist: ['http://localhost:3000/*', 'https://coffeecodephillyapi.herokuapp.com/*'],
+    crossOriginWhitelist: ['http://localhost:3000/*', '107.170.159.14/*'],
     authorizer: 'simple-auth-authorizer:devise'
   },
 
   ENV['simple-auth-devise'] = {
-    serverTokenEndpoint: 'https://coffeecodephillyapi.herokuapp.com/users/sign_in'
+    serverTokenEndpoint: '107.170.159.14/users/sign_in'
   }
 
   if (environment === 'development') {
@@ -61,7 +61,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.api_host = 'https://coffeecodephillyapi.herokuapp.com'
+    ENV.api_host = '107.170.159.14'
 
   }
 
