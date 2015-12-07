@@ -7,13 +7,13 @@ module.exports = function(environment) {
     baseURL: '/',
     api_host: null,
     contentSecurityPolicy: {
-      'default-src': "http://localhost:3000 http://localhost:4200 107.170.159.14",
-      'script-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
-      'font-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
-      'connect-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
-      'img-src': "* 'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
-      'style-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14",
-      'media-src': "'self' http://localhost:3000 http://localhost:4200 107.170.159.14"
+      'default-src': "http://localhost:3000 http://localhost:8000 http://localhost:4200 http://107.170.159.14/",
+      'script-src': "'self' http://localhost:3000 http://localhost:8000 http://localhost:4200 http://107.170.159.14/",
+      'font-src': "'self' http://localhost:3000 http://localhost:4200 http://localhost:8000 http://107.170.159.14/",
+      'connect-src': "'self' http://localhost:3000 http://localhost:4200 http://localhost:8000 http://107.170.159.14/",
+      'img-src': "* 'self' http://localhost:3000 http://localhost:4200 http://107.170.159.14/ http://localhost:8000",
+      'style-src': "'self' http://localhost:3000 http://localhost:4200 http://107.170.159.14/ http://localhost:8000",
+      'media-src': "'self' http://localhost:3000 http://localhost:4200 http://107.170.159.14/ http://localhost:8000"
     },
     locationType: 'auto',
     EmberENV: {
@@ -30,12 +30,12 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    crossOriginWhitelist: ['http://localhost:3000/*', '107.170.159.14/*'],
+    crossOriginWhitelist: ['http://localhost:3000/*', 'http://107.170.159.14/*', 'http://localhost:8000/*'],
     authorizer: 'simple-auth-authorizer:devise'
   },
 
   ENV['simple-auth-devise'] = {
-    serverTokenEndpoint: '107.170.159.14/users/sign_in'
+    serverTokenEndpoint: 'http://107.170.159.14:8000/users/sign_in'
   }
 
   if (environment === 'development') {
@@ -61,7 +61,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.api_host = '107.170.159.14'
+    ENV.api_host = 'http://107.170.159.14:8000'
 
   }
 
